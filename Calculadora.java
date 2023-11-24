@@ -1,5 +1,5 @@
 public class Calculadora extends javax.swing.JFrame {
-    double num1,num2;
+    double num1,num2,num3;
     String signo;
     //^variables auxiliares
     public Calculadora() {
@@ -50,14 +50,14 @@ public class Calculadora extends javax.swing.JFrame {
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         jLabel1.setOpaque(true);
 
-        botonMultiplicar.setText("×");
+        botonMultiplicar.setText("x");
         botonMultiplicar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonMultiplicarActionPerformed(evt);
             }
         });
         //listeners para los botones
-        botonDivision.setText("÷");
+        botonDivision.setText("/");
         botonDivision.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonDivisionActionPerformed(evt);
@@ -319,60 +319,71 @@ public class Calculadora extends javax.swing.JFrame {
     private void botonClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonClearActionPerformed
         // TODO add your handling code here:
         jLabel1.setText("");
+        num1 = 0.0;
+        num2 = 0.0;
+        num3 = 0.0;
     }//GEN-LAST:event_botonClearActionPerformed
 
     private void botonDivisionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonDivisionActionPerformed
         // TODO add your handling code here:
-        num1=Double.parseDouble(jLabel1.getText());
+        num1=num1/Double.parseDouble(jLabel1.getText());
         signo = "/";
         jLabel1.setText("");
     }//GEN-LAST:event_botonDivisionActionPerformed
 
     private void botonMultiplicarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonMultiplicarActionPerformed
         // TODO add your handling code here:
-        num1=Double.parseDouble(jLabel1.getText());
+        num1=num1*Double.parseDouble(jLabel1.getText());
         signo = "*";
         jLabel1.setText("");
     }//GEN-LAST:event_botonMultiplicarActionPerformed
 
     private void botonRestaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRestaActionPerformed
         // TODO add your handling code here:
-        num1=Double.parseDouble(jLabel1.getText());
+        num1=num1-Double.parseDouble(jLabel1.getText());
         signo = "-";
         jLabel1.setText(null);
     }//GEN-LAST:event_botonRestaActionPerformed
 
     private void botonSumaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSumaActionPerformed
         // TODO add your handling code here:
-        num1=Double.parseDouble(jLabel1.getText());
+        
+        num1=num1+Double.parseDouble(jLabel1.getText());
         signo = "+";
         jLabel1.setText("");
+        
+
     }//GEN-LAST:event_botonSumaActionPerformed
 
     private void botonIgualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonIgualActionPerformed
-        // TODO add your handling code here:
+        //BOTON DE IGUAL
+
         //if para division entre 0
         if(num2==0 && num2==0 && signo.equals("/")){
-            jLabel1.setText("Error");
+            jLabel1.setText("ErrorS");
         }else{
             num2=Double.parseDouble(jLabel1.getText());
             //case del igual
             switch(signo){
                 case"+":
                     jLabel1.setText(Double.toString(num1+num2));
-
+                    num1 = 0.0;
+                    num2=0.0;
                     break;
                 case"-":
                     jLabel1.setText(Double.toString(num1-num2));
-
+                    num1 = 0.0;
+                    num2 = 0.0;
                     break;
                 case"/":
                     jLabel1.setText(Double.toString(num1/num2));
-
+                    num1 = 0.0;
+                    num2=0.0;
                     break;
                 case"*":
                     jLabel1.setText(Double.toString(num1*num2));
-
+                    num1 = 0.0;
+                    num2=0.0; 
                     break;
             }
         }
