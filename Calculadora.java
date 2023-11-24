@@ -1,11 +1,12 @@
 public class Calculadora extends javax.swing.JFrame {
-    int num1,num2;
+    double num1,num2;
     String signo;
     //^variables auxiliares
     public Calculadora() {
         initComponents();
         this.setResizable(false);
         this.setLocationRelativeTo(null);
+        this.setTitle("Calculadora");
         //propiedades para evitar el cambio en el tamaño de ventana
     }
 
@@ -36,9 +37,9 @@ public class Calculadora extends javax.swing.JFrame {
         Boton3 = new javax.swing.JButton();
         botonSuma = new javax.swing.JButton();
         botonIgual = new javax.swing.JButton();
-        //ajuestes de dimensiones (editar con el neatbeans)
+        //ajuestes de dimensiones 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
+        //salir del programa al cerrar
         jPanel1.setBackground(new java.awt.Color(242, 179, 122));
         //propiedades del label ubicado en el panel 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -55,7 +56,7 @@ public class Calculadora extends javax.swing.JFrame {
                 botonMultiplicarActionPerformed(evt);
             }
         });
-
+        //listeners para los botones
         botonDivision.setText("÷");
         botonDivision.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -160,7 +161,7 @@ public class Calculadora extends javax.swing.JFrame {
                 botonIgualActionPerformed(evt);
             }
         });
-
+        //fin de listeners
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -322,28 +323,28 @@ public class Calculadora extends javax.swing.JFrame {
 
     private void botonDivisionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonDivisionActionPerformed
         // TODO add your handling code here:
-        num1=Integer.parseInt(jLabel1.getText());
+        num1=Double.parseDouble(jLabel1.getText());
         signo = "/";
         jLabel1.setText("");
     }//GEN-LAST:event_botonDivisionActionPerformed
 
     private void botonMultiplicarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonMultiplicarActionPerformed
         // TODO add your handling code here:
-        num1=Integer.parseInt(jLabel1.getText());
+        num1=Double.parseDouble(jLabel1.getText());
         signo = "*";
         jLabel1.setText("");
     }//GEN-LAST:event_botonMultiplicarActionPerformed
 
     private void botonRestaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRestaActionPerformed
         // TODO add your handling code here:
-        num1=Integer.parseInt(jLabel1.getText());
+        num1=Double.parseDouble(jLabel1.getText());
         signo = "-";
-        jLabel1.setText("");
+        jLabel1.setText(null);
     }//GEN-LAST:event_botonRestaActionPerformed
 
     private void botonSumaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSumaActionPerformed
         // TODO add your handling code here:
-        num1=Integer.parseInt(jLabel1.getText());
+        num1=Double.parseDouble(jLabel1.getText());
         signo = "+";
         jLabel1.setText("");
     }//GEN-LAST:event_botonSumaActionPerformed
@@ -354,20 +355,24 @@ public class Calculadora extends javax.swing.JFrame {
         if(num2==0 && num2==0 && signo.equals("/")){
             jLabel1.setText("Error");
         }else{
-            num2=Integer.parseInt(jLabel1.getText());
+            num2=Double.parseDouble(jLabel1.getText());
             //case del igual
             switch(signo){
                 case"+":
-                    jLabel1.setText(Integer.toString(num1+num2));
+                    jLabel1.setText(Double.toString(num1+num2));
+
                     break;
                 case"-":
-                    jLabel1.setText(Integer.toString(num1-num2));
+                    jLabel1.setText(Double.toString(num1-num2));
+
                     break;
                 case"/":
-                    jLabel1.setText(Integer.toString(num1/num2));
+                    jLabel1.setText(Double.toString(num1/num2));
+
                     break;
                 case"*":
-                    jLabel1.setText(Integer.toString(num1*num2));
+                    jLabel1.setText(Double.toString(num1*num2));
+
                     break;
             }
         }
@@ -409,7 +414,7 @@ public class Calculadora extends javax.swing.JFrame {
         });
     }
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
+//Declaracion de los objetos a usar en la UI
     private javax.swing.JButton Boton0;
     private javax.swing.JButton Boton1;
     private javax.swing.JButton Boton2;
@@ -428,5 +433,4 @@ public class Calculadora extends javax.swing.JFrame {
     private javax.swing.JButton botonSuma;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    // End of variables declaration//GEN-END:variables
 }
