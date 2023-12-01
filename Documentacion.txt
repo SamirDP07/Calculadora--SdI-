@@ -1,0 +1,11 @@
+Características:
+-Desarollado en NetBeans IDE 19 haciendo uso del JDK de java versión 20.0.1 - 2023-04-18
+Para el Uso:
+-Presionar los botones de numeros para formar un numero, usar el punto para formar un decimal si se desea
+-Si escribio incorrectamente el numero puede presionar C para limpiarlo y empezar de nuevo
+-Seleccionar la operacion a realizar e ingresar nuevamente un numero
+-Presionar igual para obtener un resultado una vez realizadas las acciones anteriores
+-Si desea seguir operando con este resultado puede seleccionar otra operacion e ingresar otro numero
+-Si no desea seguir operando con este numero presione CE para empezar de 0
+Aclaracion final
+El programa debe ser ejecutado por medio del Simbolo del sistema o del archivo Ejecutar.bat , pues el archivo .jar no funciona
